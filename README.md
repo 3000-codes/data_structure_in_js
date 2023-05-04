@@ -372,6 +372,43 @@ console.log(map.size); // 2
 + Map的遍历顺序是根据插入顺序来定的
 + Object的遍历顺序是根据...
 
+### WeakMap & WeakSet
+
+#### 1. WeakMap
+
++ WeakMap的key只能是对象
++ WeakMap的key是弱引用,不会阻止垃圾回收机制回收key所对应的对象
++ WeakMap的key是不可枚举的
+
+#### 2. WeakSet
+
++ WeakSet的元素只能是对象
++ WeakSet的元素是弱引用,不会阻止垃圾回收机制回收元素所对应的对象
++ WeakSet的元素是不可枚举的
+
+```javascript
+(() => {
+  const ws = new WeakSet();
+  var g = {
+    bar: {
+      va
+    },
+    foo: {},
+  };
+
+  ws.add(g.bar);
+  ws.add(g.foo);
+
+  console.log(ws.has(g.foo)); // true
+  console.log(ws.has(g.bar)); // true
+
+  delete g.foo;
+  console.log(ws.has(g.foo)); // false
+})();
+
+```
+
+
 ## 拓展类型
 
 ### Stack
