@@ -7,7 +7,18 @@ class LinkNode<T> {
   }
 }
 
-class LinkedList<T> {
+/**
+ * 复杂度对比: linkedList vs array
+ *
+ * 元素访问:  O(n)  vs  O(1)
+ * 尾部添加:  O(1)  vs  O(1)  (如果没有尾部指针, 则linkedList为O(n))
+ * 头部添加:  O(1)  vs  O(n)
+ * 中间添加:  小于O(n)  vs  O(n)
+ * 查找元素:  O(n)  vs  O(n)
+ *
+ */
+
+export default class LinkedList<T> {
   head: LinkNode<T> | null = null;
   tail: LinkNode<T> | null = null;
 
@@ -58,6 +69,17 @@ class LinkedList<T> {
     }
   }
 
+  // 删除头部节点
+  deleteHead() {
+    if (!this.head) return null;
+    const value = this.head.value;
+    this.head = this.head.next;
+    if (this.head === null) {
+      this.tail = null;
+    }
+    return value;
+  }
+
   // 插入节点: 在某个节点后面插入
   insertAfter(value: T, target: T) {
     const node = new LinkNode(value);
@@ -76,7 +98,7 @@ class LinkedList<T> {
   //  查找节点
   find(value: T) {
     let current = this.head;
-    if(!current) return null;
+    if (!current) return null;
     while (current) {
       if (current.value === value) {
         return current;
@@ -87,10 +109,10 @@ class LinkedList<T> {
   }
 
   // 反转链表
-  reverse(){
+  reverse() {
     let current = this.head;
     let prev = null;
-    while(current){
+    while (current) {
       const next = current.next; // 保存下一个节点
       current.next = prev; // 当前节点的next指向上一个节点
       prev = current; // 上一个节点变成当前节点
@@ -100,6 +122,7 @@ class LinkedList<T> {
     this.head = prev;
   }
 
+  // 打印链表
   print() {
     let current = this.head;
     while (current) {
@@ -108,6 +131,7 @@ class LinkedList<T> {
     }
   }
 
+  // 转换成数组
   toArray() {
     const result: T[] = [];
     let current = this.head;
@@ -118,6 +142,7 @@ class LinkedList<T> {
     return result;
   }
 
+  // 转换成迭代器
   [Symbol.iterator]() {
     let current = this.head;
     return {
@@ -140,25 +165,27 @@ class LinkedList<T> {
   }
 }
 
-const list = new LinkedList<number>();
-list.append(1);
-list.append(2);
-list.append(3);
-list.append(4);
-list.append(5);
+function example() {
+  const list = new LinkedList<number>();
+  list.append(1);
+  list.append(2);
+  list.append(3);
+  list.append(4);
+  list.append(5);
 
-list.print();
-console.log("------------------");
-list.delete(5);
-list.print();
-console.log("------------------");
-list.insertAfter(2.5, 2);
-list.insertAfter(2.5, 2);
-list.insertAfter(2.5, 2);
-list.print();
-console.log("------------------");
-list.delete(2.5);
-list.print();
-console.log("------------------");
-list.reverse();
-list.print();
+  list.print();
+  console.log("------------------");
+  list.delete(5);
+  list.print();
+  console.log("------------------");
+  list.insertAfter(2.5, 2);
+  list.insertAfter(2.5, 2);
+  list.insertAfter(2.5, 2);
+  list.print();
+  console.log("------------------");
+  list.delete(2.5);
+  list.print();
+  console.log("------------------");
+  list.reverse();
+  list.print();
+}
