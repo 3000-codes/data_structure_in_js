@@ -1,4 +1,4 @@
-import LinkedList from "./linkedList";
+import LinkedList from "./LinkedList";
 // js中的对象就是一种hash table
 
 function demo1() {
@@ -148,7 +148,7 @@ class HashTableProMax {
 
   set(key: string, value: any) {
     let keyHash = this.hash(key);
-    // 开放寻址法
+    // 开放寻址法 : 如果keyHash已经有值了，就往后找，直到找到一个空的位置
     if (this.buckets[keyHash] === null || this.buckets[keyHash].key === key) {
       this.buckets[keyHash] = { key, value };
     } else {
