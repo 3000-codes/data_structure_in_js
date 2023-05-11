@@ -1,4 +1,4 @@
-import LinkedList from "./LinkedList";
+import LinkedList from "../LinkedList";
 // js中的对象就是一种hash table
 
 function demo1() {

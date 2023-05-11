@@ -1,5 +1,6 @@
 import { decimalToBinary, decimalToAny, factorial } from "./Stack/examples";
 import { passGame, test_PriorityQueue, fibonacci } from "./Queue/examples";
+import { fileSystem } from "./Tree/example";
 
 // console.log(passGame(["John", "Jack", "Camila", "Ingrid", "Carl"], 7));
 
@@ -18,4 +19,8 @@ console.log("击鼓传花：", passGame(["John", "Jack", "Camila", "Ingrid", "Ca
 // console.log("回文数判断：", isPalindrome("123321"));
 console.log("斐波那契数列：", fibonacci(8));
 console.log("优先队列：", test_PriorityQueue());
+console.groupEnd();
+
+console.group("树的应用");
+console.log("文件系统：", fileSystem());
 console.groupEnd();
