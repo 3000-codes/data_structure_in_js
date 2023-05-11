@@ -97,6 +97,19 @@ export default class LinkedList<T> {
     return null;
   }
 
+  get(index: number) {
+    let current = this.head;
+    let i = 0;
+    while (current) {
+      if (i === index) {
+        return current;
+      }
+      i++;
+      current = current.next;
+    }
+    return null;
+  }
+
   // 反转链表
   reverse() {
     let current = this.head;
@@ -153,6 +166,8 @@ export default class LinkedList<T> {
     };
   }
 }
+
+export { LinkNode, LinkedList };
 
 /**
  * 复杂度对比: linkedList vs array

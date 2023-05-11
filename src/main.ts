@@ -11,7 +11,7 @@ import { fileSystem } from "./Tree/example";
 console.group("栈的应用");
 console.log("十进制转二进制：", decimalToBinary(10));
 console.log("十进制转任意进制：", decimalToAny(10, 8));
-console.log("5 的阶乘：", factorial(5));
+console.log("6 的阶乘：", factorial(6));
 console.groupEnd();
 
 console.group("队列的应用");
