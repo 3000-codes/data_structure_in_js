@@ -1,26 +1,26 @@
 import LinkedList from "./";
+import DoublyLinkedList,{DoublyLinkNode} from "./DoublyLinkedList";
+import LRU from "./LRU";
 
-function example() {
-  const list = new LinkedList<number>();
-  list.append(1);
-  list.append(2);
-  list.append(3);
-  list.append(4);
-  list.append(5);
-
-  list.print();
-  console.log("------------------");
-  list.delete(5);
-  list.print();
-  console.log("------------------");
-  list.insertAfter(2.5, 2);
-  list.insertAfter(2.5, 2);
-  list.insertAfter(2.5, 2);
-  list.print();
-  console.log("------------------");
-  list.delete(2.5);
-  list.print();
-  console.log("------------------");
-  list.reverse();
-  list.print();
+// 判断回文字符串
+function isPalindrome(str: string) {
+  const list = new LinkedList<string>();
+  for (let i = 0; i < str.length; i++) {
+    list.append(str[i]);
+  }
+  let current = list.head;
+  let reverseStr = "";
+  while (current) {
+    reverseStr = current.value + reverseStr;
+    current = current.next;
+  }
+  return reverseStr === str;
 }
+
+function LRUcache(){
+
+}
+
+
+
+export { isPalindrome,LRUcache };

@@ -10,7 +10,7 @@ function fileSystem() {
   documents!.node.addChild("resume.doc");
   downloads!.node.addChild("node.dmg");
   fileSystems.remove("documents/resume.doc");
-  fileSystems.remove("documents/resume01.doc");
+  // fileSystems.remove("documents/resume01.doc");
 
   return fileSystems;
 }

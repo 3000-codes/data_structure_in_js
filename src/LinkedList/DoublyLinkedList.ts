@@ -1,6 +1,6 @@
 import { LinkNode, LinkedList } from ".";
 
-class DoublyLinkNode<T> extends LinkNode<T> {
+export class DoublyLinkNode<T> extends LinkNode<T> {
   prev: DoublyLinkNode<T> | null = null;
   next: DoublyLinkNode<T> | null = null;
   constructor(value: T) {
@@ -89,5 +89,15 @@ export default class DoublyLinkedList<T> extends LinkedList<T> {
         current = current.next!;
       }
     }
+  }
+
+  size() {
+    let count = 0;
+    let current = this.head;
+    while (current) {
+      count++;
+      current = current.next!;
+    }
+    return count;
   }
 }
